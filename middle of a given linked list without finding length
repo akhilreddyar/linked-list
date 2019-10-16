@@ -1,0 +1,24 @@
+int middle(){
+    struct node *temp1,*temp2,*temp3;
+    int s=head->data;
+    //one is slow pointer and other is fast pointer and a third pointer a forward step of fast pointer
+    temp1=head;
+    temp2=head;
+    temp3=temp2;
+    //checking untill the fast pointer reaches end or null
+    while(temp2!=NULL){
+    
+        temp1=temp1->next;
+        temp3=temp2;
+        if(temp3->next!=NULL){
+        s=temp1->data;
+        //fast pointer is only incremented when the future step of fast pointer is not null
+        temp2=temp2->next->next;
+        }
+        else
+        //if it is null then return the old slow pointer data
+        return  s;
+    }
+    return temp1->data;
+    
+}
