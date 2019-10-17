@@ -1,0 +1,33 @@
+struct node *rotate(int j){
+    struct node *temp1;
+    int k=0;
+    temp1=head;
+    //if the length is not given first find the length
+    while(temp1->next!=NULL)
+    {
+        k++;
+        temp1=temp1->next;
+    }
+    //if the given rotation is a multiple of length so no need to rotate
+      if((j%(++k))==0)
+     {
+         temp1=head; 
+     return head;
+     }
+     else{
+         //to get the nth node (given lenth - no of times to rotate)%length=no of traversees
+        j=abs(k-j)%k; 
+        temp1->next=head;
+        //this the nth node so make the node as start of node 
+        temp1=head;
+        //traverse for the nth node and make the next pointer as head and then make it as null this makes the node be the start of list 
+    while(j){
+        j--;
+        temp1=temp1->next;
+    }
+    
+    head=temp1->next;
+    temp1->next=NULL;
+  return head; 
+     }
+}
