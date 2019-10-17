@@ -1,0 +1,25 @@
+void addnumber(int carry){
+    //reveres the list
+    struct node *temp1;
+    int k=0;
+    //make carry is 1 to add this number to data in the list 
+    
+    reverse();
+    temp1=head;
+    while(temp1!=NULL){
+        //add carry to the list 
+         temp1->data=(temp1->data)+carry;
+         //if the carry is greater then 9 the store remainder in this node and qoefficient in carry
+        if(temp1->data>=10)
+        {  k=temp1->data;
+            temp1->data=(temp1->data)%10;
+            
+            carry=k/10;
+           
+        }
+        temp1=temp1->next;
+    }
+   // reverse the list 
+  reverse();
+  
+}
